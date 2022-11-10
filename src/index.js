@@ -14,13 +14,13 @@ const product = {
 };
 
 function Section(props) {
-  const { productName, productDescription, price, availability} = product;
+  const {product: {productName='Test Name', productDescription='test description', price='test price', availability}} = props;
   if (availability > 0){
     return (
       <>
-        <p>Product name is: {productName || 'Test Name'}</p>
-        <p>Product description: {productDescription || 'test description'}</p>
-        <p>Price: {price || 'test price'}</p>
+        <p>Product name is: {productName}</p>
+        <p>Product description: {productDescription}</p>
+        <p>Price: {price}</p>
         <p>Product in stock</p>
     </>
   );
@@ -35,4 +35,4 @@ return (
 }
 
 
-root.render(<Section/>);
+root.render(<Section product={product}/>)
