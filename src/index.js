@@ -10,28 +10,18 @@ const product = {
   productName: "Happy Dog",
   productDescription: "Dry food for dogs",
   price: 1500,
-  availability: 3,
+  availability: 0,
 };
 
 function Section(props) {
   const {product: {productName='Test Name', productDescription='test description', price='test price', availability}} = props;
-  if (availability > 0){
-    return (
-      <>
-        <p>Product name is: {productName}</p>
-        <p>Product description: {productDescription}</p>
-        <p>Price: {price}</p>
-        <p>Product in stock</p>
-    </>
-  );
-}
-return (
+  return (
   <>
     <p>Product name is: {productName}</p>
     <p>Product description: {productDescription}</p>
     <p>Price: {price}</p>
-    <p>Product out of stock</p>
-</>);
+    <p>Product {availability > 0 ? 'in':'out of'} stock</p>
+  </>);
 }
 
 
